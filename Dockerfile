@@ -1,9 +1,5 @@
 FROM python:3.8.5-slim-buster
 
-RUN groupadd --gid 5000 main \
-    && useradd --home-dir /home/main --create-home --uid 5000 \
-        --gid 5000 --shell /bin/sh --skel /dev/null main
-
 COPY entrypoint.sh /entrypoint.sh
 
 # install curl; skipcq: DOK-DL3008
