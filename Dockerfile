@@ -17,4 +17,4 @@ RUN curl -L -o ./install-misspell.sh https://git.io/misspell \
 
 USER main
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
