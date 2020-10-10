@@ -1,0 +1,13 @@
+name: 'Armory: Spell Check and validate your issue schema'
+description: 'Github action to spellcheck and validate DeepSource's issues.'
+author: 'Srijan Saurav <srijan@deepsource.io>'
+inputs:
+  issues-path:
+    description: 'Relative path to the issues directory. Defaults to `./issues`'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+    icon: zap
+    color: orange
