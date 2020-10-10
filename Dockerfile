@@ -1,9 +1,5 @@
 FROM python:3.8.5-slim-buster
 
-RUN groupadd --gid 5000 main \
-    && useradd --home-dir /home/main --create-home --uid 5000 \
-        --gid 5000 --shell /bin/sh --skel /dev/null main
-
 COPY . /app
 WORKDIR /app
 
@@ -15,7 +11,5 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN curl -L -o ./install-misspell.sh https://git.io/misspell \
     && sh ./install-misspell.sh
 RUN ["chmod", "777", "/app/entrypoint.sh"]
-
-USER main
 
 ENTRYPOINT ["/app/entrypoint.sh"]
