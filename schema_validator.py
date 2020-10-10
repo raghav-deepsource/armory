@@ -31,7 +31,7 @@ def raise_issue(filepath, message, line=1, col=0):
     with open(filepath) as fp:
         line = len(fp.readlines())
 
-    print(f"{filepath}:{line}:{col}: {message}")
+    print(f"{filepath}: {line}:{col}: {message}")
 
 
 def main():

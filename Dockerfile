@@ -10,6 +10,12 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # download the misspell cli binary
 RUN curl -L -o ./install-misspell.sh https://git.io/misspell \
     && sh ./install-misspell.sh
+
+# Download schema-validator dependency
+# skipcq: DOK-DL3008
+RUN pip install toml
+
+# Change perms
 RUN ["chmod", "777", "/app/entrypoint.sh"]
 
 ENTRYPOINT ["/app/entrypoint.sh"]
