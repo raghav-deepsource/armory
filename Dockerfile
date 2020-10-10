@@ -14,6 +14,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # download the misspell cli binary
 RUN curl -L -o ./install-misspell.sh https://git.io/misspell \
     && sh ./install-misspell.sh
+RUN ["chmod", "777", "/app/entrypoint.sh"]
 
 USER main
 
