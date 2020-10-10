@@ -5,8 +5,10 @@ echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/misspell.json"
 echo "TERM: changing from $TERM -> xterm"
 export TERM=xterm
 
+IssueDir="${INPUT_ISSUES-PATH:-"./issues"}"
+
 echo Running: Spellcheck
-/app/bin/misspell ./issues
+/app/bin/misspell "$IssueDir"
 exit_code=$?
 
 if [ "$exit_code" = "0" ]; then
