@@ -19,10 +19,3 @@ fi
 
 echo Running: Schema Validator
 python /app/schema_validator.py
-exit_code=$?
-
-if [ "$exit_code" = "0" ]; then
-    echo "Schema validated with no errors"
-else
-    echo "Schema has issues"
-fi

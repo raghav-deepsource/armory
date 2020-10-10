@@ -51,7 +51,7 @@ def main():
                 except toml.decoder.TomlDecodeError as exc:
                     # Can not decode toml file. Raise an issue.
                     # Details are in exc.
-                    raise_issue(filepath, str(exc))
+                    raise_issue(filepath, f"Error decoding toml: {str(exc)}")
                     issue_count += 1
                     continue
 
