@@ -1,6 +1,7 @@
 """Checks to ensure the individual issues toml have all the required fields."""
 import os
 import sys
+
 import toml
 
 SEVERITIES = ("major", "minor", "critical")
@@ -70,7 +71,7 @@ def main():
                 # check for severity:
                 severity = data.get("severity")
                 if not severity:
-                    raise_issue(filepath, f"Missing severity field")
+                    raise_issue(filepath, "Missing severity field")
                     issue_count += 1
                 else:
                     if severity not in SEVERITIES:
@@ -80,7 +81,7 @@ def main():
                 # check for category
                 category = data.get("category")
                 if not category:
-                    raise_issue(filepath, f"Missing category field")
+                    raise_issue(filepath, "Missing category field")
                     issue_count += 1
                 else:
                     if category not in CATEGORIES:
@@ -90,7 +91,7 @@ def main():
                 # Check for description
                 description = data.get("description")
                 if not description:
-                    raise_issue(filepath, f"Missing description field")
+                    raise_issue(filepath, "Missing description field")
                     issue_count += 1
                 else:
                     if not isinstance(description, str):
