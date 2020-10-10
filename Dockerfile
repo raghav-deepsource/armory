@@ -15,8 +15,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN curl -L -o ./install-misspell.sh https://git.io/misspell \
     && sh ./install-misspell.sh
 
-RUN ["chmod", "777", "/app/main.py"]
-
 USER main
 
-CMD ["/app/main.py"]
+ENTRYPOINT ["/entrypoint.sh"]
