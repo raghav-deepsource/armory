@@ -1,5 +1,5 @@
 name: 'Armory: Spell Check and validate your issue schema'
-description: 'Github action to spellcheck and validate DeepSource's issues.'
+description: 'GitHub action to spellcheck and validate DeepSource issue files.'
 author: 'Srijan Saurav <srijan@deepsource.io>'
 inputs:
   issues-path:
