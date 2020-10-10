@@ -1,6 +1,7 @@
 """Checks to ensure the individual issues toml have all the required fields."""
 import os
 import sys
+
 import toml
 
 SEVERITIES = ("major", "minor", "critical")
