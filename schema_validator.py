@@ -56,6 +56,10 @@ def main():
                     issue_count += 1
                     continue
 
+                # Do not check this file if the issue is archived
+                if data.get("archived"):
+                    continue
+                    
                 # Check for issue title:
                 title = data.get("title")
                 if not title:
