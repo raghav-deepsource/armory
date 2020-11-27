@@ -13,7 +13,7 @@ RUN curl -L -o ./install-misspell.sh https://git.io/misspell \
 
 # Download schema-validator dependency
 # skipcq: DOK-DL3008
-RUN pip install toml
+RUN pip install tomlkit
 
 # Change perms
 RUN ["chmod", "777", "/app/entrypoint.sh"]

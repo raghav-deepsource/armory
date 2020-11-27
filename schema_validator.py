@@ -2,7 +2,7 @@
 import os
 import sys
 
-import toml
+import tomlkit as toml
 
 SEVERITIES = ("major", "minor", "critical")
 
@@ -48,8 +48,8 @@ def main():
             filepath = os.path.join(dir_path, filename)
             with open(filepath) as fp:
                 try:
-                    data = toml.load(fp)
-                except toml.decoder.TomlDecodeError as exc:
+                    data = toml.loads(fp.read())
+                except Exception as exc:
                     # Can not decode toml file. Raise an issue.
                     # Details are in exc.
                     raise_issue(filepath, f"Error decoding toml: {str(exc)}")
@@ -59,7 +59,7 @@ def main():
                 # Do not check this file if the issue is archived
                 if data.get("archived"):
                     continue
-                    
+
                 # Check for issue title:
                 title = data.get("title")
                 if not title:
