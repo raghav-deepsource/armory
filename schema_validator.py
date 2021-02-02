@@ -75,14 +75,14 @@ def main():
                 # check for severity or weight:
                 weight_val = data.get("severity") or data.get("weight")
                 issue_value = None
-                if not weight_val:
-                    issue_value = "Missing weight/severity field"
-                elif weight_val is int and weight_val not in range(1, 101):
+                if not weight_val: # if weight is None, it means neither of these returned anything useful.
+                    issue_value = "Missing weight/severity field" 
+                elif weight_val is int and weight_val not in range(1, 101): # If weight value is an integer, assume it is weight.
                     issue_value = "Weight should be in the range 1-100"
-                elif weight_val is str and weight_val not in SEVERITIES:
+                elif weight_val is str and weight_val not in SEVERITIES: # If weight value is a string assume it is severity.
                     issue_value = f"severity should be one of {SEVERITIES}"
                 else:
-                    issue_value = f"Invalid value {weight_val} for weight/severity"
+                    issue_value = f"Invalid value {weight_val} for weight/severity" # If neither of the two checks above work, we can't make sense of it.
 
                 if issue_value:
                     raise_issue(filepath, issue_value)
