@@ -72,13 +72,17 @@ def main():
                         )
                         issue_count += 1
 
-                # check for severity:
+                # check for severity or weight:
                 severity = data.get("severity")
-                if not severity:
-                    raise_issue(filepath, "Missing severity field")
+                weight = data.get("weight")
+                if not severity and not weight:
+                    raise_issue(filepath, "Missing weight/severity field")
                     issue_count += 1
                 else:
-                    if severity not in SEVERITIES:
+                    if weight not in range(1, 101):
+                        raise_issue(filepath, "Weight should be in the range 1-100")
+                        issue_count += 1
+                    elif severity not in SEVERITIES:
                         raise_issue(filepath, f"severity should be one of {SEVERITIES}")
                         issue_count += 1
 
